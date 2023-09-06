@@ -10,9 +10,9 @@ RUN go mod download
 
 COPY ./main.go $CODE_DIR
 
-RUN go build -o $BIN_FILE .
+RUN CGO_ENABLED=0 go build -o $BIN_FILE .
 
-FROM ubuntu:latest
+FROM alpine:3.18.3
 
 ENV BIN_FILE /opt/server
 
