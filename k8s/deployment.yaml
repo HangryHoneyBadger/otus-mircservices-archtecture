@@ -19,5 +19,25 @@ spec:
           image: oxfox/otus_microservice:hw1
           ports:
             - containerPort: 8000
+          livenessProbe:
+              httpGet:
+                path: /health
+                port: 8000
+                httpHeaders:
+                  - name: Custom-Header
+                    value: Awesome
+              initialDelaySeconds: 5
+              periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+              httpHeaders:
+                - name: Custom-Header
+                  value: Awesome
+            initialDelaySeconds: 5
+            periodSeconds: 10
+
+
 
 
