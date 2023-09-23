@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ms-home-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: arch.homework
+    - http:
+        paths:
+          - path: "/otusapp/vbardusov"
+            pathType: Prefix
+            backend:
+              service:
+                name: ms-home-service
+                port:
+                  number: 80
