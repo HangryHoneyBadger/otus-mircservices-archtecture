@@ -7,7 +7,7 @@ spec:
   rules:
     - http:
         paths:
-          - path: "/otus/vbardusov"
+          - path: "/otusapp/vbardusov"
             pathType: Prefix
             backend:
               service:
