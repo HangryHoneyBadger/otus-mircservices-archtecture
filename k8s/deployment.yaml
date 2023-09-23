@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ms-home-service
+  labels:
+    app: ms-home-service
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ms-home-app
+  template:
+    metadata:
+      labels:
+        app: ms-home-app
+    spec:
+      containers:
+        - name: ms-home-app
+          image: oxfox/otus_microservice:hw1
+          ports:
+            - containerPort: 8000
+
+
